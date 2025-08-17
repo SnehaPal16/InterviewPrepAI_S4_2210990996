@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for AI Interview Preparation App. Provides authentication, role-based interview sessions, Gemini AI-powered Q&A, MongoDB storage, and analytics APIs.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AI",
+    "Interview",
+    "App",
+    "Backend"
+  ],
+  "author": "Shivansh Sharma",
+  "license": "ISC"
+}
