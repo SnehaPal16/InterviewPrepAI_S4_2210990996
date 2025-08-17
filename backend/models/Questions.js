@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const questionSchema = mongoose.Schema({
     session : { type: mongoose.Schema.Types.ObjectId, ref: "Session"},

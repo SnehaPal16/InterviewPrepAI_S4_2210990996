@@ -1,8 +1,7 @@
-const Questions = require("../models/Questions");
 const Question = require("../models/Questions");
 const Session = require("../models/Session");
 
-exports.addQustionToSession = async(req , res) => {
+const addQustionToSession = async(req , res) => {
     try{
         const {sessionId , questions} = req.body;
 
@@ -37,8 +36,7 @@ exports.addQustionToSession = async(req , res) => {
     }
 };
 
-
-exports.togglePinQuestion = async(req , res) => {
+const togglePinQuestion = async(req , res) => {
     try{
         const question = await Question.findById(req.param.id);
 
@@ -57,9 +55,7 @@ exports.togglePinQuestion = async(req , res) => {
     }
 }
 
-
-
-exports.updateQustionNote = async(req , res) => {
+const updateQustionNote = async(req , res) => {
     try{
         const {note} = req.body;
         const question = await Question.findById(req.param.id);
@@ -77,3 +73,5 @@ exports.updateQustionNote = async(req , res) => {
         res.status(500).json({message : "Server Error"});
     }
 }
+
+module.exports = {addQustionToSession , togglePinQuestion , updateQustionNote}
