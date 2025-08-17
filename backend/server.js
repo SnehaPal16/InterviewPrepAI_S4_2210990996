@@ -5,6 +5,8 @@ const path = require("path");
 const connectDB = require("./config/db");
 
 const questionRoutes = require('./routes/questionRoutes');
+const {protect} = require("./middlewares/authMiddleware");
+const {generateInterviewQuestions , generateInterviewExplanation} = require("./controllers/aiController");
 
 const app = express();
 
@@ -26,8 +28,8 @@ app.use(express.json());
 // app.use('/api/sessions' , sessionRoutes);
 app.use('/api/questions' , questionRoutes);
 
-// app.use("/api/ai/generate-questions", protect , generateInterviewQuestions);
-// app.use("/api/ai/generate-explanations", protect , generateInterviewExplanation);
+app.use("/api/ai/generate-questions", protect , generateInterviewQuestions);
+app.use("/api/ai/generate-explanations", protect , generateInterviewExplanation);
 
 // Routes
 // Serve uploads folder
