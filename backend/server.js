@@ -10,6 +10,7 @@ const {protect} = require("./middlewares/authMiddleware");
 const {generateInterviewQuestions , generateInterviewExplanation} = require("./controllers/aiController");
 
 const app = express();
+connectDB();
 
 // Middleware
 app.use(express.json());
