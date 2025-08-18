@@ -70,7 +70,7 @@ const deleteSessions = async (req , res) => {
         }
 
         if(session.user.toString() !== req.user.id){
-            return res.status(401).json(message : "This Session Is Not Your , So You Can't Delete This");
+            return res.status(401).json({message : "This Session Is Not Your , So You Can't Delete This"});
         }
 
         await Question.deleteMany({session : session._id});
