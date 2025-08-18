@@ -37,7 +37,7 @@ const conceptExplainPrompt = (question)=>(`
     Task:
 
     - Explain the following interview question and its concept in depth as if you're teaching a beginner developer. 
-    - Question: "s{question}"
+    - Question: "${question}"
     - After the explanation, provide a short and clear title that summarizes the concept for the article or page header 
     - If the explanation includes a code example, provide a small code block.
     - Keep the formatting very clean and clear.
