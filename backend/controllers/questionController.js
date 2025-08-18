@@ -1,7 +1,7 @@
 const Question = require("../models/Questions");
 const Session = require("../models/Session");
 
-const addQustionToSession = async(req , res) => {
+const addQuestionToSession = async(req , res) => {
     try{
         const {sessionId , questions} = req.body;
 
@@ -55,7 +55,7 @@ const togglePinQuestion = async(req , res) => {
     }
 }
 
-const updateQustionNote = async(req , res) => {
+const updateQuestionNote = async(req , res) => {
     try{
         const {note} = req.body;
         const question = await Question.findById(req.param.id);
@@ -74,4 +74,4 @@ const updateQustionNote = async(req , res) => {
     }
 }
 
-module.exports = {addQustionToSession , togglePinQuestion , updateQustionNote}
+module.exports = {addQuestionToSession , togglePinQuestion , updateQuestionNote}
