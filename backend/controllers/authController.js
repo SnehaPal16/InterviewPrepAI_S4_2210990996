@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const generateToken = (userId) => {
-    jwt.sign({id : userId} , process.env.JWT_SECRET , {expiresIn : '7d'});
+    return jwt.sign({id : userId} , process.env.JWT_SECRET , {expiresIn : '7d'});
 }
 
 const registerUser = async (req , res) => {
@@ -26,12 +26,14 @@ const registerUser = async (req , res) => {
             profileImageUrl
         });
 
-        res.status(200).json({
+        const token = generateToken(user._id)
+
+        res.status(201).json({
             _id : user._id,
             name : user.name,
             email : user.email,
             profileImageUrl : profileImageUrl,
-            token : generateToken(user._id)
+            token : token
         });
     }
     catch(err){
