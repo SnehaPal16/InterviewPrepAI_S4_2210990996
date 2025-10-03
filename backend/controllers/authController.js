@@ -13,7 +13,7 @@ const registerUser = async (req , res) => {
         const userExists = await User.findOne({email});
 
         if(userExists){
-            res.status(401).json({message : "User Already Exists"});
+            return res.status(401).json({message : "User Already Exists"});
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -28,7 +28,7 @@ const registerUser = async (req , res) => {
 
         const token = generateToken(user._id)
 
-        res.status(201).json({
+        return res.status(201).json({
             _id : user._id,
             name : user.name,
             email : user.email,
@@ -37,7 +37,7 @@ const registerUser = async (req , res) => {
         });
     }
     catch(err){
-        res.status(401).json({message : "Server Error" , error : err.message});
+        return res.status(401).json({message : "Server Error" , error : err.message});
     }
 }
 
