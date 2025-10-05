@@ -41,8 +41,14 @@ const Login = ({ setCurrentPage }) => {
       const { token, ...userData } = response.data;
 
       if (token) {
+        //  Combine user data and token
+        const finalUserData = { ...userData, token };
+
+        //  Save token and update user context
         localStorage.setItem('token', token);
-        updateUser(userData);
+        updateUser(finalUserData);
+
+        //  Redirect to dashboard
         navigate('/dashboard');
       } else {
         setError('Invalid login response. Please try again.');
@@ -56,6 +62,7 @@ const Login = ({ setCurrentPage }) => {
     } finally {
       setLoading(false);
     }
+
   };
 
   return (

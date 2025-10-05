@@ -1,4 +1,4 @@
-import React , { useContext, useState } from 'react'
+import React , { useContext, useState , useEffect} from 'react'
 
 import HERO_IMG from "../assets/hero-img.jpeg";
 import { APP_FEATURES } from "../utils/data";
@@ -24,6 +24,14 @@ const LandingPage = () => {
       navigate("/dashboard");
     }
   };
+
+//   useEffect(() => {
+//   if(user){
+//     setOpenAuthModal(false);  // close modal
+//     navigate("/dashboard");
+//   }
+// }, [user , navigate]);
+
 
   return (
     <>
